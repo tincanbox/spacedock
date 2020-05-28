@@ -1,0 +1,1 @@
+docker restart spacedock || docker run --user dev -itd --name spacedock space/dock zsh
