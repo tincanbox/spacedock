@@ -1,4 +1,4 @@
-Designed for `caravan`, portable my dotfiles.
+Docker definition file for caravan
 
 
 # Includes
@@ -22,45 +22,37 @@ Add --no-cache if you want to force-rebuild.
 
 
 
-# Running
+# Usage
 
-## First run
-
-### Basic initiation
+## Install
 
 ```
-docker run -itd --name spacedock space/dock
+git clone https://github.com/tincanbox/spacedock.git
+cd spacedock
+./control/build
 ```
 
-### running as ssh server (Do NOT use with an image with SSH key included)
-
-```
-docker run --privileged -itd -p 2222:22 --name spacedock space/dock
-```
+This will take 10~20 mins to complete.
 
 
 ## Running from control script
 
-Supported Commands
+Supported Commands are,
 
 - build
-- run
+- launch (run or restart)
 - login
 
-Windows
 
-```
-cat .\control\launch | iex
-```
-
-Linux
+### Linux
 
 ```
 ./control/launch
 ```
 
-## Reusing containers
+
+### Windows (MINGW is recommended for all commands.)
 
 ```
-docker restart spacedock
+cat .\control\launch | iex
 ```
