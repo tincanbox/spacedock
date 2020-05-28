@@ -3,10 +3,10 @@ Designed for `caravan`, portable my dotfiles.
 
 # Includes
 
--- node
--- python3
--- zsh + prezto
--- neovim
+- node
+- python3
+- zsh + prezto
+- neovim
 
 
 
@@ -43,9 +43,9 @@ docker run --privileged -itd -p 2222:22 --name spacedock space/dock
 
 Supported Commands
 
--- build
--- run
--- login
+- build
+- run
+- login
 
 Windows
 
