@@ -1,0 +1,1 @@
+docker build --build-arg INCUBATOR_VER=YOUR_VERSION_NUM -t space/dock .
