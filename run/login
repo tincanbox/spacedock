@@ -1,0 +1,2 @@
+# Logging into the ship with zsh
+docker-compose exec spacedock zsh 

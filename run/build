@@ -1,0 +1,2 @@
+# Building after workspace section.
+docker-compose build --build-arg INCUBATOR_VER=YOUR_VERSION_NUM

@@ -1,4 +1,21 @@
-version: '1.0'
+version: '3.7'
 services:
-volumes:
-services:
+  spacedock:
+    hostname: space
+    container_name: starship
+    env_file: .env
+    #entrypoint: zsh
+    tty: true        # docker run -t
+    # stdin_open: true # docker run -i
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      # Passing to ARG
+      args:
+        - DEFAULT_GID=${DEFAULT_GID}
+        - DEFAULT_UID=${DEFAULT_UID}
+        - DEFAULT_GROUP=${DEFAULT_GROUP}
+        - DEFAULT_USER=${DEFAULT_USER}
+        - DEFAULT_PASSWORD=${DEFAULT_PASSWORD}
+    volumes:
+      - ${WORKSPACE_VOLUME}:/home/${DEFAULT_USER}/cabin

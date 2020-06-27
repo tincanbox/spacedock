@@ -1,4 +1,5 @@
 # Ubuntu basic-DEV build
+# Last Updated: 2020-06
 
 #---------------------------------------- BASE OS Environment
 
@@ -16,11 +17,13 @@ SHELL ["/bin/bash", "-c"]
 #--------------------
 
 # default signinfo
-ARG DEFAULT_GROUP=crew
-ARG DEFAULT_GID=5000
-ARG DEFAULT_USER=dev
-ARG DEFAULT_UID=5001
-ARG DEFAULT_PASSWORD="password"
+ARG DEFAULT_GROUP=${DEFAULT_GROUP}
+ARG DEFAULT_GID=${DEFAULT_GID}
+ARG DEFAULT_USER=${DEFAULT_USER}
+ARG DEFAULT_UID=${DEFULT_UID}
+ARG DEFAULT_PASSWORD=${DEFAULT_PASSWORD}
+
+RUN echo "DEFAULT_GROUP = $DEFAULT_GROUP"
 
 # package
 ARG PKG_UPDATE="apt-get update -y && apt-get install -y software-properties-common apt-utils"
@@ -45,8 +48,8 @@ RUN eval "${PKG_INSTALL} ${PKG_REQBASIS}"
 RUN ${PKG_INSTALL} sudo
 
 # user default group
-RUN addgroup --gid $DEFAULT_GID $DEFAULT_GROUP
-RUN adduser --disabled-password --gecos "" --ingroup $DEFAULT_GROUP --uid $DEFAULT_UID $DEFAULT_USER
+RUN addgroup --gid ${DEFAULT_GID} ${DEFAULT_GROUP}
+RUN adduser --disabled-password --gecos "" --ingroup ${DEFAULT_GROUP} --uid ${DEFAULT_UID} ${DEFAULT_USER}
 RUN adduser ${DEFAULT_USER} sudo
 RUN echo "${DEFAULT_USER}:${DEFAULT_PASSWORD}" | chpasswd
 
@@ -88,6 +91,7 @@ ARG INCUBATOR_VER=unknown
 # changing working user and dir
 USER $DEFAULT_USER
 ENV HOME /home/${DEFAULT_USER}
+ENV SHELL zsh
 WORKDIR $HOME
 
 #--------------------
@@ -102,6 +106,7 @@ RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR
 
 #--------------------
 # Caravan
+# My zsh dev-env bootstrapper.
 #--------------------
 RUN git clone https://github.com/tincanbox/caravan
 RUN cd ./caravan && ./caravan init

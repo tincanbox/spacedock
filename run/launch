@@ -1,0 +1,2 @@
+# Starting spacedock with default-user.
+docker-compose up -d
