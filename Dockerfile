@@ -115,7 +115,7 @@ RUN cd $HOME
 #--------------------
 # Space
 #--------------------
-RUN mkdir ~/space
+# RUN mkdir ~/space
 
 
 CMD ["zsh"]

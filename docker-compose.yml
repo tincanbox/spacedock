@@ -18,4 +18,4 @@ services:
         - DEFAULT_USER=${DEFAULT_USER}
         - DEFAULT_PASSWORD=${DEFAULT_PASSWORD}
     volumes:
-      - ${WORKSPACE_VOLUME}:/home/${DEFAULT_USER}/cabin
+      - ${WORKSPACE_VOLUME}:/home/${DEFAULT_USER}/space
